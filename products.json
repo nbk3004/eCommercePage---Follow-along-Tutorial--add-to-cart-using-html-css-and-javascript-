@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1,
+        "name": "Navigation Device",
+        "price": 119.00,
+        "image": "images/navigationDevice.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Adapter",
+        "price": 5.00,
+        "image": "images/adapter.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Earplug Translater",
+        "price": 50.00,
+        "image": "images/earplugtranslater.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Fire Tablet",
+        "price": 75.00,
+        "image": "images/fire.png"
+    },
+    {
+        "id": 5,
+        "name": "Loop Earplugs",
+        "price": 30.00,
+        "image": "images/PDP_QUIET_MINT_01-480164.webp"
+    },
+    {
+        "id": 6,
+        "name": "Google Pixel 9",
+        "price": 550.00,
+        "image": "images/pixel9.jpg"
+    },
+    {
+        "id": 7,
+        "name": "Bluetooth Speaker",
+        "price": 45.00,
+        "image": "images/speaker.webp"
+    },
+    {
+        "id": 8,
+        "name": "Hard Disk",
+        "price": 125.00,
+        "image": "images/WD.png"
+    }
+]
