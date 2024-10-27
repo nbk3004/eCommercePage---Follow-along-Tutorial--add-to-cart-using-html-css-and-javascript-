@@ -7,7 +7,7 @@ body {
 
 
 .container {
-    width: 900px;
+    width: auto;
     margin: auto;
     max-width: 90vw;
     text-align: center;
@@ -51,6 +51,7 @@ a {
 
 .navbar--search {
     border-radius: 20px;
+    display: list-item;
 
 }
 
@@ -87,6 +88,7 @@ header .icon-cart span {
 .listProduct {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    width: 100%;
     gap: 20px;
     padding: 20px;
     box-shadow: #555;
@@ -255,6 +257,23 @@ p {
     padding: 15px;
     text-align: justify;
     max-width: 80%;
+}
+
+/* Read More Button */
+.read-more-btn {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-top: 5px;
+    font-size: 0.7em;
+    color: #ffffff;
+    background-color: #007bff;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.read-more-btn:hover {
+    background-color: #0056b3;
 }
 
 .footer-content {
