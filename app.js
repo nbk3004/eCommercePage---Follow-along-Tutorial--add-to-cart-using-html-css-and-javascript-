@@ -16,9 +16,9 @@ closeCart.addEventListener('click', () => {
 });
 
 
-// Add products to HTML
+
 const addDataToHTML = () => {
-    // Clear the current products to prevent duplication
+
     listProductHTML.innerHTML = '';
     
     if (products.length > 0) {
@@ -37,7 +37,7 @@ const addDataToHTML = () => {
 };
 
 
-// Handle adding items to the cart when 'Add to Cart' button is clicked
+
 listProductHTML.addEventListener('click', (event) => {
     if (event.target.classList.contains('addCart')) {
         let productId = event.target.parentElement.dataset.id;
@@ -45,7 +45,7 @@ listProductHTML.addEventListener('click', (event) => {
     }
 });
 
-// Function to add products to the cart
+
 const addToCart = (productId) => {
     let cartItemIndex = cart.findIndex(item => item.product_id == productId);
 
@@ -61,12 +61,12 @@ const addToCart = (productId) => {
     saveCartToLocalStorage();
 };
 
-// Save cart to local storage
+
 const saveCartToLocalStorage = () => {
     localStorage.setItem('cart', JSON.stringify(cart));
 };
 
-// Update the cart HTML
+
 const updateCartHTML = () => {
     listCartHTML.innerHTML = ''; // Clear the current cart items
     let totalQuantity = 0;
@@ -99,7 +99,7 @@ const updateCartHTML = () => {
     iconCartSpan.innerText = totalQuantity;
 };
 
-// Handle quantity changes in the cart
+
 listCartHTML.addEventListener('click', (event) => {
     if (event.target.classList.contains('minus') || event.target.classList.contains('plus')) {
         let productId = event.target.parentElement.parentElement.dataset.id;
@@ -108,7 +108,7 @@ listCartHTML.addEventListener('click', (event) => {
     }
 });
 
-// Change quantity of an item in the cart
+
 const changeCartItemQuantity = (productId, type) => {
     let cartItemIndex = cart.findIndex(item => item.product_id == productId);
 
