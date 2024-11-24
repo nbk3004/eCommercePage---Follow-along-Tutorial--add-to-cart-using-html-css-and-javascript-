@@ -219,6 +219,14 @@ body.showCart .container {
 
 
 
+.totalPrice h3 {
+    padding: 20px;
+    font-size: 1.2em;
+    color: #E8BC0E;
+    text-align: right;
+}
+
+
 .tech-tips {
     display: grid;
     grid-template-columns: repeat(2, 1fr);

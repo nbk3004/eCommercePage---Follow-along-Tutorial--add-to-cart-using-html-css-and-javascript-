@@ -15,9 +15,7 @@ closeCart.addEventListener('click', () => {
     body.classList.toggle('showCart');
 });
 
-
 const addDataToHTML = () => {
-
     listProductHTML.innerHTML = '';
     
     if (products.length > 0) {
@@ -35,15 +33,12 @@ const addDataToHTML = () => {
     }
 };
 
-
-
 listProductHTML.addEventListener('click', (event) => {
     if (event.target.classList.contains('addCart')) {
         let productId = event.target.parentElement.dataset.id;
         addToCart(productId);
     }
 });
-
 
 const addToCart = (productId) => {
     let cartItemIndex = cart.findIndex(item => item.product_id == productId);
@@ -60,15 +55,14 @@ const addToCart = (productId) => {
     saveCartToLocalStorage();
 };
 
-
 const saveCartToLocalStorage = () => {
     localStorage.setItem('cart', JSON.stringify(cart));
 };
 
-
 const updateCartHTML = () => {
-    listCartHTML.innerHTML = ''; // Clear the current cart items
+    listCartHTML.innerHTML = '';
     let totalQuantity = 0;
+    let totalPrice = 0; // Initialize total price
 
     if (cart.length > 0) {
         cart.forEach(item => {
@@ -92,54 +86,25 @@ const updateCartHTML = () => {
                     </div>
                 `;
                 listCartHTML.appendChild(cartItem);
+
+                // Add to the total price
+                totalPrice += product.price * item.quantity;
             }
         });
+
+        // Display the total price at the bottom of the cart
+        let totalPriceElement = document.createElement('div');
+        totalPriceElement.classList.add('totalPrice');
+        totalPriceElement.innerHTML = `<h3>Total: €${totalPrice.toFixed(2)}</h3>`;
+        listCartHTML.appendChild(totalPriceElement);
     }
     iconCartSpan.innerText = totalQuantity;
 };
 
-
-listCartHTML.addEventListener('click', (event) => {
-    if (event.target.classList.contains('minus') || event.target.classList.contains('plus')) {
-        let productId = event.target.parentElement.parentElement.dataset.id;
-        let type = event.target.classList.contains('plus') ? 'plus' : 'minus';
-        changeCartItemQuantity(productId, type);
-    }
-});
-
-
-const changeCartItemQuantity = (productId, type) => {
-    let cartItemIndex = cart.findIndex(item => item.product_id == productId);
-
-    if (cartItemIndex >= 0) {
-        let item = cart[cartItemIndex];
-        if (type === 'plus') {
-            item.quantity += 1;
-        } else if (type === 'minus') {
-            item.quantity -= 1;
-            if (item.quantity <= 0) {
-                cart.splice(cartItemIndex, 1);
-            }
-        }
-    }
-    updateCartHTML();
-    saveCartToLocalStorage();
-};
-
-// Initialize app
-const initApp = () => {
-    fetch('products.json')
+// Load products from JSON file
+fetch('products.json')
     .then(response => response.json())
     .then(data => {
         products = data;
         addDataToHTML();
-
-        // Load cart from local storage
-        if (localStorage.getItem('cart')) {
-            cart = JSON.parse(localStorage.getItem('cart'));
-            updateCartHTML();
-        }
     });
-};
-
-initApp();
